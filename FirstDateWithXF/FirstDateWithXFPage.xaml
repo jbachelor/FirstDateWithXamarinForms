@@ -1,11 +1,50 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <ContentPage
-	xmlns="http://xamarin.com/schemas/2014/forms"
-	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-	xmlns:local="clr-namespace:FirstDateWithXF"
-	x:Class="FirstDateWithXF.FirstDateWithXFPage">
-	<Label
-		Text="Welcome to Xamarin Forms!"
-		VerticalOptions="Center"
-		HorizontalOptions="Center" />
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:FirstDateWithXF"
+    x:Class="FirstDateWithXF.FirstDateWithXFPage">
+    <Grid>
+        <!--   A ContentPage can display just ONE view element, but of course we want to display more (like a label AND a button in this case).     -->
+        <!--   We use a "layout control" to be that ONE view element, but the layout control can contain LOTS of elements within it!     -->
+        <!--   We'll use a Grid here, but there are other layouts:  https://developer.xamarin.com/guides/xamarin-forms/user-interface/layouts/     -->
+        <!---->
+        <!--   When creating a grid, we must declare the rows & columns in advance, as seen just below.     -->
+        <!--   In this instance, we have 3 rows and 1 column     -->
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Label
+            Grid.Row="0"
+            Grid.Column="0"
+            Text="Welcome to SoCal Code Camp!"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            HorizontalTextAlignment="Center"
+            BackgroundColor="Aqua"
+            Rotation="15"
+            FontAttributes="Bold"
+            FontSize="Medium"
+            TextColor="Navy" />
+        <Button
+            Grid.Row="1"
+            Grid.Column="0"
+            x:Name="RotationButton"
+            Text="Rotate!"
+            Clicked="Handle_Clicked"/>
+        <Label
+            Grid.Row="2"
+            Grid.Column="0"
+            x:Name="ClickCounterLabel"
+            Text="{Binding ClickCountText}"
+            TextColor="#022a6b"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            HorizontalTextAlignment="Center"/>
+    </Grid>
 </ContentPage>
