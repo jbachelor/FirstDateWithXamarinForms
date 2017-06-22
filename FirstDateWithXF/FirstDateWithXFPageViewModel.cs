@@ -21,8 +21,23 @@ namespace FirstDateWithXF
             }
         }
 
+        private int _rotationAmount;
+        public int RotationAmount
+        {
+            get { return _rotationAmount; }
+            set
+            {
+                if (_rotationAmount != value)
+                {
+                    _rotationAmount = value;
+                    OnPropertyChanged(nameof(RotationAmount));
+                }
+            }
+        }
+
         public FirstDateWithXFPageViewModel()
         {
+            RotationAmount = 15;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -40,6 +55,16 @@ namespace FirstDateWithXF
         internal void OnRotateButtonClicked()
         {
             clickCount++;
+
+            if (RotationAmount >= 360)
+            {
+                RotationAmount = 15;
+            }
+            else
+            {
+                RotationAmount += 15;
+            }
+
             System.Diagnostics.Debug.WriteLine($"**** {this.GetType().Name}.{nameof(OnRotateButtonClicked)}:  clickCount={clickCount}");
 
             ClickCountText = $"{clickCount} clicks!";

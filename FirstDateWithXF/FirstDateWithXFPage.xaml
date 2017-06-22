@@ -27,7 +27,7 @@
             HorizontalOptions="Center"
             HorizontalTextAlignment="Center"
             BackgroundColor="Aqua"
-            Rotation="15"
+            Rotation="{Binding RotationAmount}"
             FontAttributes="Bold"
             FontSize="Medium"
             TextColor="Navy" />
