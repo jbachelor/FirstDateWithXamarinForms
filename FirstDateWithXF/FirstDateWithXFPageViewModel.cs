@@ -65,7 +65,8 @@ namespace FirstDateWithXF
                 RotationAmount += 15;
             }
 
-            System.Diagnostics.Debug.WriteLine($"**** {this.GetType().Name}.{nameof(OnRotateButtonClicked)}:  clickCount={clickCount}");
+            System.Diagnostics.Debug.WriteLine($"**** {this.GetType().Name}.{nameof(OnRotateButtonClicked)}:  " +
+                                               $"clickCount ={ clickCount}, RotationAmount ={ RotationAmount}");
 
             ClickCountText = $"{clickCount} clicks!";
         }
